@@ -1,6 +1,6 @@
-from Tasks.Task import AbstractTask
+from Tasks.AbstractTask import AbstractTask
 from Datasets.ImageDataset import ImageDataset
-from skimage.transform import rescale, resize
+from skimage.transform import  resize
 from sklearn.cluster import KMeans
 from Helpers.ImageHelper import ImageHelper
 import sys

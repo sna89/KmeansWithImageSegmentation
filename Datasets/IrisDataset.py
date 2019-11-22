@@ -1,5 +1,5 @@
-from Datasets import AbsractDataFrameDataset
-import panda as pd
+from Datasets.Dataset import AbsractDataFrameDataset
+import pandas as pd
 import numpy as np
 from sklearn import datasets
 

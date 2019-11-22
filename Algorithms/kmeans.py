@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.spatial import distance
-import random
 import pandas as pd
+import matplotlib.pyplot as plt
 
 class Kmeans():
     def __init__(self, k, seed=None):
@@ -14,7 +14,7 @@ class Kmeans():
         if plus_plus_init:
             self.centroids = self._kmeans_plus_plus()
         else:
-            self.centroids = np.random.permutation(data)[:self.k]
+            self.centroids = np.random.permutation(self.data)[:self.k]
 
     def _kmeans_plus_plus(self):
         centroids = []
@@ -98,7 +98,6 @@ class Kmeans():
                 last_score = self._calc_score()
 
         self.score = last_score
-        return self
 
     def plot_elbow(self,y):
         plt.plot(1+np.arange(len(y)), y)
