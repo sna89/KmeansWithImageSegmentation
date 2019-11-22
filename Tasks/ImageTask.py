@@ -3,7 +3,7 @@ from Datasets.ImageDataset import ImageDataset
 from skimage.transform import rescale, resize
 from sklearn.cluster import KMeans
 from Helpers.ImageHelper import ImageHelper
-
+import sys
 
 class ImageSegmentationKmeansTask(AbstractTask):
     def __init__(self):
@@ -34,7 +34,7 @@ class ImageSegmentationKmeansTask(AbstractTask):
         self.kmeans = KMeans(clusters, random_state=0)
         self.kmeans.fit(image)
 
-    def execute(self,path):
+    def execute(self,path,clusters,resize_factor):
         self.path = path
 
         self._load_data()
@@ -48,4 +48,7 @@ class ImageSegmentationKmeansTask(AbstractTask):
 
 if __name__ == "__main__":
     task = ImageSegmentationKmeansTask()
-    task.execute(path=u'C:\\Users\\noamarbe\\Desktop\\MLExplore\\images_dataset')
+    path = sys.argv[1]
+    clusters = sys.argv[2]
+    resize_factor = sys.argv[3]
+    task.execute(path,clusters,resize_factor)
